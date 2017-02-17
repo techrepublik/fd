@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="fd_dataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Guests">
+    <Key>
+      <PropertyRef Name="GuestId" />
+    </Key>
+    <Property Name="GuestId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GuestName" Type="varchar(max)" />
+    <Property Name="GuestAddress" Type="varchar(max)" />
+    <Property Name="GuestContact" Type="varchar" MaxLength="50" />
+    <Property Name="GuestEmail" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="TransactionId" />
+    </Key>
+    <Property Name="TransactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionDate" Type="date" />
+    <Property Name="TransactionQnty" Type="int" />
+    <Property Name="TransactionPrice" Type="float" />
+    <Property Name="TransactionAmount" Type="float" />
+    <Property Name="TransactionIsActive" Type="bit" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="TransactionTypeId" Type="int" />
+    <Property Name="GuestId" Type="int" />
+  </EntityType>
+  <EntityType Name="TransactionTypes">
+    <Key>
+      <PropertyRef Name="TransactionTypeId" />
+    </Key>
+    <Property Name="TransactionTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionTypeName" Type="varchar" MaxLength="50" />
+    <Property Name="TransactionTypeAmount" Type="float" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="UserPassword" Type="varchar" MaxLength="50" />
+    <Property Name="UserLevel" Type="int" />
+    <Property Name="UserFullName" Type="varchar" MaxLength="50" />
+    <Property Name="UserIsActive" Type="bit" />
+  </EntityType>
+  <Association Name="FK_Transactions_Guests">
+    <End Role="Guests" Type="Self.Guests" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Guests">
+        <PropertyRef Name="GuestId" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="GuestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_TransactionTypes">
+    <End Role="TransactionTypes" Type="Self.TransactionTypes" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransactionTypes">
+        <PropertyRef Name="TransactionTypeId" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="TransactionTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="fd_dataModelStoreContainer">
+    <EntitySet Name="Guests" EntityType="Self.Guests" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionTypes" EntityType="Self.TransactionTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Transactions_Guests" Association="Self.FK_Transactions_Guests">
+      <End Role="Guests" EntitySet="Guests" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_TransactionTypes" Association="Self.FK_Transactions_TransactionTypes">
+      <End Role="TransactionTypes" EntitySet="TransactionTypes" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Users" Association="Self.FK_Transactions_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

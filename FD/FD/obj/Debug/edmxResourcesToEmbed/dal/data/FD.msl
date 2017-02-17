@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="fd_dataModelStoreContainer" CdmEntityContainer="fd_dataEntities">
+    <EntitySetMapping Name="Guests">
+      <EntityTypeMapping TypeName="fd_dataModel.Guest">
+        <MappingFragment StoreEntitySet="Guests">
+          <ScalarProperty Name="GuestId" ColumnName="GuestId" />
+          <ScalarProperty Name="GuestName" ColumnName="GuestName" />
+          <ScalarProperty Name="GuestAddress" ColumnName="GuestAddress" />
+          <ScalarProperty Name="GuestContact" ColumnName="GuestContact" />
+          <ScalarProperty Name="GuestEmail" ColumnName="GuestEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="fd_dataModel.Transaction">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="TransactionQnty" ColumnName="TransactionQnty" />
+          <ScalarProperty Name="TransactionPrice" ColumnName="TransactionPrice" />
+          <ScalarProperty Name="TransactionAmount" ColumnName="TransactionAmount" />
+          <ScalarProperty Name="TransactionIsActive" ColumnName="TransactionIsActive" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TransactionTypeId" ColumnName="TransactionTypeId" />
+          <ScalarProperty Name="GuestId" ColumnName="GuestId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionTypes">
+      <EntityTypeMapping TypeName="fd_dataModel.TransactionType">
+        <MappingFragment StoreEntitySet="TransactionTypes">
+          <ScalarProperty Name="TransactionTypeId" ColumnName="TransactionTypeId" />
+          <ScalarProperty Name="TransactionTypeName" ColumnName="TransactionTypeName" />
+          <ScalarProperty Name="TransactionTypeAmount" ColumnName="TransactionTypeAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="fd_dataModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserIsActive" ColumnName="UserIsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="fd_dataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Guest">
+    <Key>
+      <PropertyRef Name="GuestId" />
+    </Key>
+    <Property Name="GuestId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuestName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="GuestAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="GuestContact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GuestEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Guests" FromRole="Guests" ToRole="Transactions" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="TransactionId" />
+    </Key>
+    <Property Name="TransactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionDate" Type="DateTime" Precision="0" />
+    <Property Name="TransactionQnty" Type="Int32" />
+    <Property Name="TransactionPrice" Type="Double" />
+    <Property Name="TransactionAmount" Type="Double" />
+    <Property Name="TransactionIsActive" Type="Boolean" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="TransactionTypeId" Type="Int32" />
+    <Property Name="GuestId" Type="Int32" />
+    <NavigationProperty Name="Guest" Relationship="Self.FK_Transactions_Guests" FromRole="Transactions" ToRole="Guests" />
+    <NavigationProperty Name="TransactionType" Relationship="Self.FK_Transactions_TransactionTypes" FromRole="Transactions" ToRole="TransactionTypes" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Transactions_Users" FromRole="Transactions" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="TransactionType">
+    <Key>
+      <PropertyRef Name="TransactionTypeId" />
+    </Key>
+    <Property Name="TransactionTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TransactionTypeAmount" Type="Double" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_TransactionTypes" FromRole="TransactionTypes" ToRole="Transactions" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserLevel" Type="Int32" />
+    <Property Name="UserFullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserIsActive" Type="Boolean" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Users" FromRole="Users" ToRole="Transactions" />
+  </EntityType>
+  <Association Name="FK_Transactions_Guests">
+    <End Role="Guests" Type="Self.Guest" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Guests">
+        <PropertyRef Name="GuestId" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="GuestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_TransactionTypes">
+    <End Role="TransactionTypes" Type="Self.TransactionType" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransactionTypes">
+        <PropertyRef Name="TransactionTypeId" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="TransactionTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="fd_dataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Guests" EntityType="Self.Guest" />
+    <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+    <EntitySet Name="TransactionTypes" EntityType="Self.TransactionType" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Transactions_Guests" Association="Self.FK_Transactions_Guests">
+      <End Role="Guests" EntitySet="Guests" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_TransactionTypes" Association="Self.FK_Transactions_TransactionTypes">
+      <End Role="TransactionTypes" EntitySet="TransactionTypes" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Users" Association="Self.FK_Transactions_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A974F54-AC5C-41D7-BE2F-3844EFB03002}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FD</RootNamespace>
+    <AssemblyName>FD</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dal\cls\TransactionCls.cs" />
+    <Compile Include="dal\data\DataRepository.cs" />
+    <Compile Include="dal\data\FD.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FD.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\FD.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\FD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FD.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Guest.cs">
+      <DependentUpon>FD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\IDataRepository.cs" />
+    <Compile Include="dal\data\Transaction.cs">
+      <DependentUpon>FD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\TransactionType.cs">
+      <DependentUpon>FD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\User.cs">
+      <DependentUpon>FD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\man\GuestManager.cs" />
+    <Compile Include="dal\man\TransactionManager.cs" />
+    <Compile Include="dal\man\TransactionTypeManager.cs" />
+    <Compile Include="dal\man\UserManager.cs" />
+    <Compile Include="forms\GuestEntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\GuestEntryForm.Designer.cs">
+      <DependentUpon>GuestEntryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\TransactionListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\TransactionListForm.Designer.cs">
+      <DependentUpon>TransactionListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="forms\GuestEntryForm.resx">
+      <DependentUpon>GuestEntryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\TransactionListForm.resx">
+      <DependentUpon>TransactionListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EntityDeploy Include="dal\data\FD.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FD.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="dal\data\FD.edmx.diagram">
+      <DependentUpon>FD.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\FD.dal.cls.TransactionCls.datasource" />
+    <None Include="Properties\DataSources\FD.dal.data.Guest.datasource" />
+    <None Include="Properties\DataSources\FD.dal.data.Transaction.datasource" />
+    <None Include="Properties\DataSources\FD.dal.data.TransactionType.datasource" />
+    <None Include="Properties\DataSources\FD.dal.data.User.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UtilityManager\UtilityManager.csproj">
+      <Project>{52F42C75-B40E-4FCA-9C57-3DAB29618A30}</Project>
+      <Name>UtilityManager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dal\data\FD.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FD.edmx</DependentUpon>
+      <LastGenOutput>FD.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="dal\data\FD.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FD.edmx</DependentUpon>
+      <LastGenOutput>FD.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

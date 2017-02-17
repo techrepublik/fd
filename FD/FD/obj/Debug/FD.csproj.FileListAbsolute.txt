@@ -1,0 +1,17 @@
+F:\src\FD\FD\bin\Debug\FD.exe.config
+F:\src\FD\FD\obj\Debug\FD.csprojResolveAssemblyReference.cache
+F:\src\FD\FD\obj\Debug\FD.forms.GuestEntryForm.resources
+F:\src\FD\FD\obj\Debug\FD.MainForm.resources
+F:\src\FD\FD\obj\Debug\FD.Properties.Resources.resources
+F:\src\FD\FD\obj\Debug\FD.csproj.GenerateResource.Cache
+F:\src\FD\FD\bin\Debug\FD.exe
+F:\src\FD\FD\bin\Debug\FD.pdb
+F:\src\FD\FD\bin\Debug\EntityFramework.dll
+F:\src\FD\FD\bin\Debug\EntityFramework.SqlServer.dll
+F:\src\FD\FD\bin\Debug\UtilityManager.dll
+F:\src\FD\FD\bin\Debug\UtilityManager.pdb
+F:\src\FD\FD\bin\Debug\EntityFramework.xml
+F:\src\FD\FD\bin\Debug\EntityFramework.SqlServer.xml
+F:\src\FD\FD\obj\Debug\FD.forms.TransactionListForm.resources
+F:\src\FD\FD\obj\Debug\FD.exe
+F:\src\FD\FD\obj\Debug\FD.pdb
