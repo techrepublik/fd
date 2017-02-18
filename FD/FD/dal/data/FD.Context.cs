@@ -28,6 +28,7 @@ namespace FD.dal.data
         public virtual DbSet<Guest> Guests { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<TransactionType> TransactionTypes { get; set; }
+        public virtual DbSet<UserLevel> UserLevels { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

@@ -29,5 +29,16 @@ namespace FD
             };
             _transactionListForm.Show();
         }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = new PreferencesForm
+            {
+                MaximizeBox = false,
+                MinimizeBox = false,
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            f.ShowDialog();
+        }
     }
 }

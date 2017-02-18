@@ -15,7 +15,21 @@ namespace FD.forms
 
         private void GuestEntryForm_Load(object sender, EventArgs e)
         {
+            buttonNext.Enabled = false;
+            buttonBack.Enabled = false;
+            buttonSave.Enabled = false;
+            guestBindingSource.AddNew();
+            transactionBindingSource.AddNew();
+            guestNameTextBox.Focus();
 
+            InitRecord();
+        }
+
+        private void InitRecord()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            transactionTypeBindingSource.DataSource = TransactionTypeManager.GetAll();
+            Cursor.Current = Cursors.Default;
         }
 
         private void jTabWizard1_Selected(object sender, TabControlEventArgs e)
@@ -24,9 +38,14 @@ namespace FD.forms
             {
                 case 0:
                     buttonNext.Enabled = guestNameTextBox.Text.Length > 0;
+                    buttonSave.Enabled = false;
+                    buttonBack.Enabled = false;
                     break;
                 case 1:
                     label5.Text = guestNameTextBox.Text.ToUpper();
+                    buttonSave.Enabled = true;
+                    buttonNext.Enabled = false;
+                    buttonBack.Enabled = true;
                     break;
                 default:
                     break;
@@ -72,6 +91,11 @@ namespace FD.forms
         private void guestNameTextBox_TextChanged(object sender, EventArgs e)
         {
             label5.Text = guestNameTextBox.Text.ToUpper();
+            if (guestNameTextBox.Text.Length > 0)
+                buttonNext.Enabled = true;
+            else
+                buttonNext.Enabled = false;
+                    
         }
 
         private int SaveGuest()
@@ -100,8 +124,9 @@ namespace FD.forms
             {
                 if (transactionBindingSource == null) return false;
                 Validate();
+                ((Transaction)transactionBindingSource.Current).GuestId = _iiResult;
                 transactionBindingSource.EndEdit();
-                var iResult = TransactionManager.Save((Transaction)guestBindingSource.Current);
+                var iResult = TransactionManager.Save((Transaction)transactionBindingSource.Current);
                 if (iResult > 0)
                 {
                     bResult = true;
@@ -128,6 +153,11 @@ namespace FD.forms
                 MessageBox.Show(@"Transaction was not saved. Please verify inputs and try again.", @"Saving...",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void jTabWizard1_Validated(object sender, EventArgs e)
+        {
+            guestNameTextBox.Focus();
         }
     }
 }

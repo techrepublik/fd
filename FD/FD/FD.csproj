@@ -88,9 +88,13 @@
     <Compile Include="dal\data\User.cs">
       <DependentUpon>FD.tt</DependentUpon>
     </Compile>
+    <Compile Include="dal\data\UserLevel.cs">
+      <DependentUpon>FD.tt</DependentUpon>
+    </Compile>
     <Compile Include="dal\man\GuestManager.cs" />
     <Compile Include="dal\man\TransactionManager.cs" />
     <Compile Include="dal\man\TransactionTypeManager.cs" />
+    <Compile Include="dal\man\UserLevelManager.cs" />
     <Compile Include="dal\man\UserManager.cs" />
     <Compile Include="forms\GuestEntryForm.cs">
       <SubType>Form</SubType>
@@ -98,11 +102,29 @@
     <Compile Include="forms\GuestEntryForm.Designer.cs">
       <DependentUpon>GuestEntryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\PreferencesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\PreferencesForm.Designer.cs">
+      <DependentUpon>PreferencesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\TransactionListForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\TransactionListForm.Designer.cs">
       <DependentUpon>TransactionListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\UserManagemrnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\UserManagemrnForm.Designer.cs">
+      <DependentUpon>UserManagemrnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -115,8 +137,17 @@
     <EmbeddedResource Include="forms\GuestEntryForm.resx">
       <DependentUpon>GuestEntryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\PreferencesForm.resx">
+      <DependentUpon>PreferencesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\TransactionListForm.resx">
       <DependentUpon>TransactionListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\UserManagemrnForm.resx">
+      <DependentUpon>UserManagemrnForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -129,6 +160,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="dal\data\FD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -143,6 +175,7 @@
     <None Include="Properties\DataSources\FD.dal.data.Transaction.datasource" />
     <None Include="Properties\DataSources\FD.dal.data.TransactionType.datasource" />
     <None Include="Properties\DataSources\FD.dal.data.User.datasource" />
+    <None Include="Properties\DataSources\FD.dal.data.UserLevel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -173,6 +206,7 @@
       <DependentUpon>FD.edmx</DependentUpon>
       <LastGenOutput>FD.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\login_pic.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

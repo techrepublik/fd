@@ -41,6 +41,8 @@
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +87,8 @@
             this.maintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.guestFolioToolStripMenuItem,
             this.toolStripMenuItem1,
+            this.userManagementToolStripMenuItem,
+            this.toolStripSeparator1,
             this.preferencesToolStripMenuItem});
             this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
             this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
@@ -93,19 +97,20 @@
             // guestFolioToolStripMenuItem
             // 
             this.guestFolioToolStripMenuItem.Name = "guestFolioToolStripMenuItem";
-            this.guestFolioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.guestFolioToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.guestFolioToolStripMenuItem.Text = "&Guest Folio";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(168, 6);
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.preferencesToolStripMenuItem.Text = "&Preferences";
+            this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
             // transactionToolStripMenuItem
             // 
@@ -118,7 +123,7 @@
             // guestEntryToolStripMenuItem
             // 
             this.guestEntryToolStripMenuItem.Name = "guestEntryToolStripMenuItem";
-            this.guestEntryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.guestEntryToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.guestEntryToolStripMenuItem.Text = "&Guest Entry";
             this.guestEntryToolStripMenuItem.Click += new System.EventHandler(this.guestEntryToolStripMenuItem_Click);
             // 
@@ -141,6 +146,17 @@
             this.toolStrip1.Size = new System.Drawing.Size(934, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // userManagementToolStripMenuItem
+            // 
+            this.userManagementToolStripMenuItem.Name = "userManagementToolStripMenuItem";
+            this.userManagementToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.userManagementToolStripMenuItem.Text = "&User Management";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(168, 6);
             // 
             // MainForm
             // 
@@ -177,6 +193,8 @@
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripMenuItem userManagementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

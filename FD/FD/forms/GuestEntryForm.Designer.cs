@@ -190,6 +190,7 @@
             transactionIsActiveLabel.Size = new System.Drawing.Size(40, 13);
             transactionIsActiveLabel.TabIndex = 12;
             transactionIsActiveLabel.Text = "Active:";
+            transactionIsActiveLabel.Visible = false;
             // 
             // panel1
             // 
@@ -273,6 +274,7 @@
             this.jTabWizard1.Size = new System.Drawing.Size(499, 266);
             this.jTabWizard1.TabIndex = 0;
             this.jTabWizard1.Selected += new System.Windows.Forms.TabControlEventHandler(this.jTabWizard1_Selected);
+            this.jTabWizard1.Validated += new System.EventHandler(this.jTabWizard1_Validated);
             // 
             // tabPage1
             // 
@@ -315,6 +317,7 @@
             // 
             // guestAddressTextBox
             // 
+            this.guestAddressTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.guestAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.guestBindingSource, "GuestAddress", true));
             this.guestAddressTextBox.Location = new System.Drawing.Point(81, 48);
             this.guestAddressTextBox.Multiline = true;
@@ -386,6 +389,7 @@
             this.transactionIsActiveCheckBox.Size = new System.Drawing.Size(104, 24);
             this.transactionIsActiveCheckBox.TabIndex = 6;
             this.transactionIsActiveCheckBox.UseVisualStyleBackColor = true;
+            this.transactionIsActiveCheckBox.Visible = false;
             // 
             // transactionBindingSource
             // 
@@ -398,6 +402,7 @@
             this.transactionAmountTextBox.Name = "transactionAmountTextBox";
             this.transactionAmountTextBox.Size = new System.Drawing.Size(134, 20);
             this.transactionAmountTextBox.TabIndex = 5;
+            this.transactionAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // transactionPriceTextBox
             // 
@@ -406,6 +411,7 @@
             this.transactionPriceTextBox.Name = "transactionPriceTextBox";
             this.transactionPriceTextBox.Size = new System.Drawing.Size(134, 20);
             this.transactionPriceTextBox.TabIndex = 4;
+            this.transactionPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // transactionQntyTextBox
             // 
@@ -414,6 +420,7 @@
             this.transactionQntyTextBox.Name = "transactionQntyTextBox";
             this.transactionQntyTextBox.Size = new System.Drawing.Size(134, 20);
             this.transactionQntyTextBox.TabIndex = 3;
+            this.transactionQntyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // transactionTypeIdComboBox
             // 
@@ -443,6 +450,7 @@
             // transactionIdTextBox
             // 
             this.transactionIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.transactionBindingSource, "TransactionId", true));
+            this.transactionIdTextBox.Enabled = false;
             this.transactionIdTextBox.Location = new System.Drawing.Point(109, 44);
             this.transactionIdTextBox.Name = "transactionIdTextBox";
             this.transactionIdTextBox.Size = new System.Drawing.Size(101, 20);

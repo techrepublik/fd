@@ -12,23 +12,19 @@ namespace FD.dal.data
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class UserLevel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public UserLevel()
         {
-            this.Transactions = new HashSet<Transaction>();
+            this.Users = new HashSet<User>();
         }
     
-        public int UserId { get; set; }
-        public string UserName { get; set; }
-        public string UserPassword { get; set; }
-        public Nullable<int> UserLevelId { get; set; }
-        public string UserFullName { get; set; }
+        public int UserLevelId { get; set; }
+        public string UserLevel1 { get; set; }
         public Nullable<bool> UserIsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Transaction> Transactions { get; set; }
-        public virtual UserLevel UserLevel { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }
